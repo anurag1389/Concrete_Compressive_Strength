@@ -1,0 +1,24 @@
+#Load the data to a dataframee
+concrete<-read.csv("concrete.csv")
+#Check first 6 columns of data frame
+head(concrete)
+#Check Structure of Data frame
+str(concrete)
+#Check for missing values
+apply(is.na(concrete), 2, any)
+colSums(is.na(concrete))
+#Summary statistics of data set
+summary(concrete)
+#Drawing histograms of predictor variables
+par(mfrow=c(4,2))
+hist(concrete$Blast_Furnace_Slag)
+hist(concrete$Fly_Ash)
+hist(concrete$Water)
+hist(concrete$Superplasticizer)
+hist(concrete$Coarse_Aggregate)
+hist(concrete$Fine_Aggregate)
+hist(concrete$Age)
+hist(concrete$ï..Cement)
+#Histogram of response variable
+par(mfrow=c(1,1))
+hist(concrete$Concrete_compressive_strength)

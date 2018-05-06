@@ -1,0 +1,14 @@
+proc import datafile="/home/jainag0/Project/concrete.csv" 
+out=abcde.concrete dbms=csv replace; 
+getnames=no; 
+run;
+
+proc print data=abcde.concrete; run;
+
+proc reg data=abcde.concrete plots=(all);
+model concrete_compressive_strength = Cement Blast_Furnace_Slag Fly_ash Water Superplasticizer Coarse_aggregate Fine_Aggregate Age;
+run;
+
+proc corr data=abcde.concrete;
+var cement water superplasticizer fine_aggregate concrete_compressive_strength;
+run;
